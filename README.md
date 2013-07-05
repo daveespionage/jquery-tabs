@@ -1,39 +1,52 @@
-jquery-tabs
-===========
+# Tabs
 
-a super-light tab plugin for jquery
+A lightweight tabbed interface plugin for jQuery
 
-Dependencies
-------------
+## Getting Started
+Download the [production version][min] or the [development version][max].
+
+[min]: https://raw.github.com/daveespionage/jquery-tabs/master/dist/tabs.min.js
+[max]: https://raw.github.com/daveespionage/jquery-tabs/master/dist/tabs.js
+
+In your web page:
+
+```html
+<div class="tab-container">
+ <div class="tabs">
+  <div class="tab selected" data-tab="uniquesignifierforthepair"></div>
+  <div class="tab" data-tab="otheruniquesignifierforthepair"></div>
+ </div>
+ <div class="tabs-content">
+  <div class="tab-content selected" data-tab="uniquesignifierforthepair"></div>
+  <div class="tab-content" data-tab="otheruniquesignifierforthepair"></div>
+ </div>
+</div>
+
+<script src="jquery.js"></script>
+<script src="dist/tabs.min.js"></script>
+<script>
+jQuery(function($) {
+ $('.tab-container').tabs();
+});
+</script>
+```
+
+## Documentation
+ *Requires*
  - jQuery
  - html structure where you have
   - tabs with a tab class (default: .tab, change selector in options)
   - content with content class (default: .tab-content, change cselector in options)
   - data-tab attributes in each that has the unique signifier for the pair
 
-Usage
------
-
-HTML:
-```
- <div class="tab-container">
-  <div class="tabs">
-   <div class="tab selected" data-tab="uniquesignifierforthepair"></div>
-   <div class="tab" data-tab="otheruniquesignifierforthepair"></div>
-  </div>
-  <div class="tabs-content">
-   <div class="tab-content selected" data-tab="uniquesignifierforthepair"></div>
-   <div class="tab-content" data-tab="otheruniquesignifierforthepair"></div>
-  </div>
- </div>
-```
-
-Initialize in JavaScript
-```
- // without config
+## Examples
+ *without config object, using only defaults*
+```javascript
  $('.tab-container').tabs();
- 
- // with custom config values
+```
+
+ *overriding defaults with custom config*
+```javascript
  $('.tab-container').tabs({
      selector : '.tab',
      cselector: '.tab-content',
@@ -43,3 +56,6 @@ Initialize in JavaScript
      }
  });
 ```
+
+## Release History
+_(Nothing yet)_

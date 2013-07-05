@@ -1,0 +1,27 @@
+{
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "A lightweight tabbed interface plugin for jQuery",
+  "version": "0.0.4",
+  "homepage": "https://github.com/daveespionage/jquery-tabs",
+  "author": {
+    "name": "David Cox-Espenlaub",
+    "email": "daveespionage@gmail.com",
+    "url": "http://www.daveespionage.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daveespionage/jquery-tabs.git"
+  },
+  "bugs": "https://github.com/daveespionage/jquery-tabs/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/daveespionage/jquery-tabs/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "1.7"
+  },
+  "keywords": []
+}
