@@ -8,38 +8,8 @@
 
 (function($){
   $.fn.tabs = function(options) {
-    var settings = {
-      selector : '.tab',        // default tab class
-      cselector: '.tab-content',    // default tab content class
-      activeClass: 'selected',    // default selected state class
-      callback: function(e,ident){} // default callback (does nothing)
-    };
-    options = $.extend( settings, options );  // get our options together
-    return this.each (function () {
-      // set up variables
-      var o = options;
-      container = this;
-      $parent = $(o.selector).parent();
-      var $navitem = $(o.selector,container).first();
-
-      // store which tab we are on
-      var ident = $navitem.attr('data-tab');
-      $parent.attr("data-tab-current",ident);
-
-      // set current tab active
-      $navitem.addClass(o.activeClass);
-
-      // hide other tab contents
-      var $pages = $(o.cselector + '[data-tab!="' + ident + '"]', container);
-      $pages.removeClass(o.activeClass);
-
-      // add trigger event to tabs
-      var $tabs = $(o.selector, container);
-      $tabs.on('click.tabs',{o:o},displayPage);
-    });
-
     // on click of one of tabs
-    function displayPage(e) {
+    var displayPage = function(e) {
       var $that = $(this),
         o = e.data.o;
       var $parent = $that.parent();
@@ -64,7 +34,6 @@
                 // and then immediately grow again.  This is strictly for appearances.  A better user
                 // experience
                 $(o.cselector + identSel).height(currHeight);
-                console.log(currHeight);
 
         // update current data
         $parent.attr("data-tab-current",ident);
@@ -76,9 +45,52 @@
                 },2000);
 
         // call callback
-        if($.isFunction(o.callback)) o.callback.apply(this,[e,ident]);
+        if($.isFunction(o.callback)) {
+          o.callback.apply(this,[e,ident]);
+        }
       }
       e.preventDefault();
-    }
+    };
+
+    var settings = {
+      // default tab class
+      selector : '.tab',
+      // default tab content class
+      cselector: '.tab-content',
+      // default selected state class
+      activeClass: 'selected',
+      // default callback (does nothing)
+      callback: function(e,ident){
+      }
+    };
+
+    // get our options together
+    $.extend( settings, options );
+
+    options = settings;
+
+    return this.each (function () {
+      // set up variables
+      var o = options,
+      container = this,
+      $parent = $(o.selector).parent(),
+      $navitem = $(o.selector,container).first();
+
+      // store which tab we are on
+      var ident = $navitem.attr('data-tab');
+      $parent.attr("data-tab-current",ident);
+
+      // set current tab active
+      $navitem.addClass(o.activeClass);
+
+      // hide other tab contents
+      var $pages = $(o.cselector + '[data-tab!="' + ident + '"]', container);
+      $pages.removeClass(o.activeClass);
+
+      // add trigger event to tabs
+      var $tabs = $(o.selector, container);
+      $tabs.on('click.tabs',{o:o},displayPage);
+    });
+
   };
 })(jQuery);

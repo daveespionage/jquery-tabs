@@ -20,43 +20,44 @@
       throws(block, [expected], [message])
   */
 
-  module('jQuery#awesome', {
+  module('jQuery#tabs', {
     // This will run before each test in this module.
     setup: function() {
-      this.elems = $('#qunit-fixture').children();
+      this.container = $('.tab-container');
     }
   });
 
   test('is chainable', function() {
     expect(1);
     // Not a bad test to run on collection methods.
-    strictEqual(this.elems.awesome(), this.elems, 'should be chainable');
+    strictEqual(this.container.tabs(), this.container, 'should be chainable');
   });
 
-  test('is awesome', function() {
+  test('has click.tabs assigned to individual tabs', function() {
     expect(1);
-    strictEqual(this.elems.awesome().text(), 'awesome0awesome1awesome2', 'should be awesome');
+    this.container.tabs();
+    var tabevent = $._data($('.tab').first()[0], 'events')["click"][0].namespace;
+    strictEqual(tabevent, 'tabs', 'should have click.tabs assigned');
   });
 
-  module('jQuery.awesome');
-
-  test('is awesome', function() {
+  test('on click, shows second tab content, hides first', function() {
     expect(2);
-    strictEqual($.awesome(), 'awesome.', 'should be awesome');
-    strictEqual($.awesome({punctuation: '!'}), 'awesome!', 'should be thoroughly awesome');
+    this.container.tabs();
+    $('.tab').last().trigger('click.tabs');
+    var firsttabcontent = $('.tab-content').first();
+    var secondtabcontent = $('.tab-content').last();
+    ok(!firsttabcontent.hasClass('selected'), 'should not have selected class');
+    ok(secondtabcontent.hasClass('selected'), 'should have selected class');
   });
 
-  module(':awesome selector', {
-    // This will run before each test in this module.
-    setup: function() {
-      this.elems = $('#qunit-fixture').children();
-    }
-  });
-
-  test('is awesome', function() {
-    expect(1);
-    // Use deepEqual & .get() when comparing jQuery objects.
-    deepEqual(this.elems.filter(':awesome').get(), this.elems.last().get(), 'knows awesome when it sees it');
+  test('on click back to first, shows first tab content, hides second', function() {
+    expect(2);
+    this.container.tabs();
+    $('.tab').first().trigger('click.tabs');
+    var firsttabcontent = $('.tab-content').first();
+    var secondtabcontent = $('.tab-content').last();
+    ok(firsttabcontent.hasClass('selected'), 'should have selected class');
+    ok(!secondtabcontent.hasClass('selected'), 'should not have selected class');
   });
 
 }(jQuery));

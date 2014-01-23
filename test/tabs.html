@@ -19,9 +19,17 @@
 <body>
   <div id="qunit"></div>
   <div id="qunit-fixture">
-    <span>lame test markup</span>
-    <span>normal test markup</span>
-    <span>awesome test markup</span>
+    <div class="tab-container">
+     <div class="tabs">
+      <div class="tab selected" data-tab="uniquesignifierforthepair"></div>
+      <div class="tab" data-tab="otheruniquesignifierforthepair"></div>
+     </div>
+     <div class="tabs-content">
+      <div class="tab-content selected" data-tab="uniquesignifierforthepair"></div>
+      <div class="tab-content" data-tab="otheruniquesignifierforthepair"></div>
+     </div>
+    </div>
+    <div class="nottabs"></div>
   </div>
 </body>
 </html>
