@@ -1,0 +1,30 @@
+.tab-container{
+}
+
+.tabs{
+	width:300px;
+}
+
+.tab{
+	display:inline-block;
+	cursor:pointer;
+}
+
+.tab.selected{
+	border:1px solid #000;
+}
+
+.tabs-content{
+	width: 300px;
+	height:100px;
+	min-height:100px;
+	border:1px dotted #ccc;
+}
+
+.tab-content{
+	display:none;
+}
+
+.tab-content.selected{
+	display:block;
+}
