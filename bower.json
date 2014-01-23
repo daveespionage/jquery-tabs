@@ -1,0 +1,23 @@
+{
+  "name": "jquery-tabs",
+  "version": "0.0.6",
+  "homepage": "https://github.com/daveespionage/jquery-tabs",
+  "authors": [
+    "David Cox-Espenlaub (daveespionage@gmail.com)"
+  ],
+  "description": "A lightweight tabbed interface plugin for jQuery",
+  "main": "dist/tabs.min.js",
+  "keywords": [
+    "tabs",
+    "plugin",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
