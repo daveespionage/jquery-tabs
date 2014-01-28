@@ -58,6 +58,8 @@ jQuery(function($) {
 ```
 
 ## Release History
-0.0.4 production version used in client site
-0.0.5 added functional unit tests, grunt build
-0.0.6 added base styles for out-of-box use with example page
+
+0.0.4 production version used in client site  
+0.0.5 added functional unit tests, grunt build  
+0.0.6 added base styles for out-of-box use with example page  
+
