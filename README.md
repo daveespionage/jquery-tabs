@@ -2,6 +2,9 @@
 
 A lightweight tabbed interface plugin for jQuery
 
+[![Build Status](https://travis-ci.org/daveespionage/jquery-tabs.svg?branch=master)](https://travis-ci.org/daveespionage/jquery-tabs)
+
+
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
